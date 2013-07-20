@@ -14,7 +14,7 @@ public class Dependencies {
 	
 	static ConcurrentHashMap<String, Integer> multiJobOutputQueueCapacity = new ConcurrentHashMap<>();
 	
-	public static BlockingQueue<Boolean> setDependentJob(Job job){
+	protected static BlockingQueue<Boolean> setDependentJob(Job job){
 		return ((JobAdapter)job).getOutputQueue();
 	}
 	
