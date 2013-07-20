@@ -20,7 +20,7 @@ package com.perfecxus.os.core;
  * This interface defines that a job is a runnable which does some
  *  work by doWork method. This forms the basis of etl 
  *  thread framework for replication manager
- * @author sinchan banerjee
+ * @author perfecxus
  *
  */
 public interface Job extends Runnable {

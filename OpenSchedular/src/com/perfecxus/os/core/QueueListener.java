@@ -29,11 +29,20 @@ public enum QueueListener {
 	List<QueueKey> keys = new ArrayList<QueueKey>();
 	
 	
+	/**
+	 * This method is used to chain multiple queues. Input Q is chained to output Q
+	 * @param queue1 : the first Q acts input Q
+	 * @param queue2 : The second Q which is chained to queue 1
+	 */
 	public void chainQueues(BlockingQueue<Boolean> queue1,BlockingQueue<Boolean> queue2){
 		chainedQueues.putIfAbsent(getKey(queue1), queue2);
 		System.out.println(chainedQueues);
 	}
 	
+	/**
+	 * publishes an event when a value is put/removed in Q queue1
+	 * @param queue1
+	 */
 	public  void publishEvent(BlockingQueue<Boolean> queue1){
 		//System.out.println("publishing event for q: " + getKey(queue1));
 		
@@ -59,6 +68,11 @@ public enum QueueListener {
 		return resultKey;
 	}
 	
+	/**
+	 * When a Q's Key is provided, then that Q is returned 
+	 * @param key : the key of the Q
+	 * @return the queue
+	 */
 	public BlockingQueue<Boolean> getQueue(String key){
 		BlockingQueue<Boolean> resultQ=null;
 		for(QueueKey q: keys)
